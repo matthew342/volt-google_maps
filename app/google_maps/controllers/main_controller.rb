@@ -160,8 +160,8 @@ module GoogleMaps
         address = marker_data
         content = marker_data
       else
-        address = marker_data._address.or('').to_n
-        content = marker_data._content.or(address).or('').to_n
+        address = (marker_data._address || '').to_n
+        content = (marker_data._content || address || '').to_n
       end
 
       geocode(address) do |latlng|
